@@ -32,9 +32,9 @@
         <div class = "expense-header">
             <h1>Expense Management</h1>
             <div class="tabs">
-                <span>Form</span>
-                <span>Status</span>
-                <span>Expense Summary</span>
+                <span class="active"><a href = "expense-form.html">Form</a></span>
+                <span><a href = "expense-form.html">Status</a></span>
+                <span><a href = "expense-form.html">Expense Summary</a></span>
             </div>
         </div>
         <div class="container-expense">
@@ -68,7 +68,7 @@
         
                         <div class="form-group">
                             <label for="amount">Expense Amount</label>
-                            <input type="number" id="amount" placeholder="$">
+                            <input type="number" id="amount" placeholder="$" style="margin-top: 0px;">
                         </div>
         
                         <div class="form-group">
@@ -77,12 +77,13 @@
                         </div>
         
                         <div class="form-group">
-                            <label for="upload">Upload Documents</label>
-                            <input type="file" id="upload">
+                            <label for="upload" class="custom-file-label"><img src="../../images/upload-img.png" alt="Upload Image" class="upload-img">Upload Documents</label>
+                            <input type="file" id="upload" class="custom-file-input">
+                            <span class="file-name">No file chosen</span>
                         </div>
         
                         <div class="buttons">
-                            <button type="button" class="cancel">Cancel</button>
+                            <button type="button" class="cancel" style="color: #828282">Cancel</button>
                             <button type="submit" class="apply">Apply</button>
                         </div>
                     </form>
@@ -95,7 +96,7 @@
     </div>
 
 
-    <script src="../../public/scripts/script.js"></script>
+    <script src="../../public/scripts/expense-script.js"></script>
 </body>
 
 </html>
