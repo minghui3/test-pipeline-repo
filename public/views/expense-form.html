@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body class="body-directory">
+    <div class="sidebar">
+        <img src="../../images/pointpulsehr-logo.png" alt="PulsePointHR Logo" class="logo">
+        <ul class="menu">
+            <a href="./directory.html" class="menu-item"><img src="../../images/directory-icon-dark.png"
+                    alt="Employee Directory Icon" class="menu-icon">Employee Directory</a>
+            <a href="./directory.html" class="menu-item"><img src="../../images/leave-icon-dark.png"
+                    alt="Leave Management Icon" class="menu-icon">Leave Management</a>
+            <a href="./expense-form.html" class="menu-item active"><img src="../../images/expense-icon-light.png"
+                    alt="Expense Management Icon" class="menu-icon">Expense Management</a>
+        </ul>
+    </div>
+    <div class="content">
+        <header>
+            <div class="profile-pic-2"></div>
+            <div class="profile-info">
+                <span class="profile-name">John Tan</span>
+                <span class="profile-id">EXXXXXX</span>
+            </div>
+
+        </header>
+        <div class = "expense-header">
+            <h1>Expense Management</h1>
+            <div class="tabs">
+                <span>Form</span>
+                <span>Status</span>
+                <span>Expense Summary</span>
+            </div>
+        </div>
+        <div class="container-expense">
+            <!-- Main Content -->
+            <main class="content-2">
+                <!-- Form Section -->
+                <section class="form-section">
+                    <form class="expense-form">
+                        <h2>Apply Expense</h2>
+        
+                        <div class="form-group">
+                            <label for="expense-type">Expense Type</label>
+                            <select id="expense-type">
+                                <option>Select Expense Type</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="approver">Approver</label>
+                            <select id="approver">
+                                <option>Sadheesh</option>
+                                <!-- Add more approvers as needed -->
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="date">Date of Expense</label>
+                            <input type="date" id="date">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="amount">Expense Amount</label>
+                            <input type="number" id="amount" placeholder="$">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="reason">Reason for Expense</label>
+                            <textarea id="reason" placeholder="Enter reason"></textarea>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="upload">Upload Documents</label>
+                            <input type="file" id="upload">
+                        </div>
+        
+                        <div class="buttons">
+                            <button type="button" class="cancel">Cancel</button>
+                            <button type="submit" class="apply">Apply</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+
+    <script src="../../public/scripts/script.js"></script>
+</body>
+
+</html>
