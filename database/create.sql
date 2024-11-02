@@ -26,10 +26,10 @@ CREATE TABLE expenses (
     amount numeric(10, 2) NOT NULL,
     status varchar(255) NOT NULL CHECK (status IN ('Approved', 'Rejected', 'Pending')),
     expense_reason varchar(255) NOT NULL,
-    supporting_document_path varchar(255) NULL,
-    rejection_reason varchar(255) NULL,
     applier_id uuid NOT NULL REFERENCES employees ON DELETE CASCADE,
-    approver_id uuid NOT NULL REFERENCES employees ON DELETE SET NULL  
+    approver_id uuid NOT NULL REFERENCES employees ON DELETE SET NULL, 
+    supporting_document_path varchar(255) NULL,
+    rejection_reason varchar(255) NULL
 );
 
 CREATE TABLE leaves (
@@ -38,8 +38,8 @@ CREATE TABLE leaves (
     date_start date NOT NULL,
     date_end date NOT NULL,
     status varchar(255) NOT NULL CHECK (status IN ('Approved', 'Rejected', 'Pending')),
-    leave_reason varchar(255) NULL,
-    rejection_reason varchar(255) NULL,
     applier_id uuid NOT NULL REFERENCES employees ON DELETE CASCADE,
-    approver_id uuid NOT NULL REFERENCES employees ON DELETE SET NULL 
+    approver_id uuid NOT NULL REFERENCES employees ON DELETE SET NULL,
+    leave_reason varchar(255) NULL,
+    rejection_reason varchar(255) NULL
 );
