@@ -4,7 +4,7 @@ const pool = require("../database/pool");
  * @typedef {Object} Expense
  * @property {string} expenseId
  * @property {string} type
- * @property {string} dateOfExpense
+ * @property {Date} dateOfExpense
  * @property {number} amount
  * @property {string} status
  * @property {string} expenseReason
@@ -47,7 +47,7 @@ class Expense {
 
     /**
      * Adds a new expense into the database.
-     * 
+     *
      * @param {Object} HTML body containing attributes of new expense
      *
      * @returns {Object} ID of new expense

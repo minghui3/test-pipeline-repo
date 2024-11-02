@@ -51,7 +51,7 @@ class Employee {
     /**
      * Adds a new employee record into the database
      *
-     * @param {Object}
+     * @param {Object} body HTML body containing the attributes of the new employee
      *
      * @returns {Object} ID of newly added employee
      */
@@ -75,11 +75,11 @@ class Employee {
                 body.workLocation,
                 body.dateJoined,
                 body.annualLeaveRemaining,
-                body.linkedIn || null,
-                body.skills || null,
-                body.photoPath || null,
-                body.languages || null,
-                body.manager || null,
+                body.linkedIn,
+                body.skills,
+                body.photoPath,
+                body.languages,
+                body.manager,
             ];
 
             const result = await pool.query(sqlQuery, values);
