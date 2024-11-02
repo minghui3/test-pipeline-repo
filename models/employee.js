@@ -46,14 +46,14 @@ class Employee {
             console.error(err);
             throw err;
         }
-    };
+    }
 
     /**
      * Adds a new employee record into the database
      *
      * @param {Object}
      *
-     * @returns {string} ID of newly added employee
+     * @returns {Object} ID of newly added employee
      */
     static async addEmployee(body) {
         try {
@@ -88,7 +88,7 @@ class Employee {
             console.error(err);
             throw err;
         }
-    };
-};
+    }
+}
 
 module.exports = Employee;
