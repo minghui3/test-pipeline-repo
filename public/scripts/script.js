@@ -6,7 +6,7 @@ function login() {
         alert("Login successful");
         // Add further login functionality here
         console.log(window.location.href)
-        window.location.href = "/public/views/directory.html";
+        window.location.href = "./public/views/directory.html";
         console.log(window.location.href)
     } else {
         alert("Please enter both username and password.");

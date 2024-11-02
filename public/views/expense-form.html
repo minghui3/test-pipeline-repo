@@ -34,7 +34,6 @@
             <div class="tabs">
                 <span class="active"><a href = "expense-form.html">Form</a></span>
                 <span><a href = "expense-form.html">Status</a></span>
-                <span><a href = "expense-form.html">Expense Summary</a></span>
             </div>
         </div>
         <div class="container-expense">
@@ -42,7 +41,7 @@
             <main class="content-2">
                 <!-- Form Section -->
                 <section class="form-section">
-                    <form class="expense-form">
+                    <form class="expense-form" id="expense-form">
                         <h2>Apply Expense</h2>
         
                         <div class="form-group">
@@ -84,7 +83,7 @@
         
                         <div class="buttons">
                             <button type="button" class="cancel" style="color: #828282">Cancel</button>
-                            <button type="submit" class="apply">Apply</button>
+                            <button type="submit" id="submitBtn" class="apply">Apply</button>
                         </div>
                     </form>
                 </section>
@@ -94,9 +93,15 @@
 
     </div>
     </div>
+    <div id="overlay" class="overlay hidden">
+        <div class="overlay-content">
+            <div class="emoji-img"><img src= "../../images/submitted-happy-image.png"></div>
+            <h2>Form submitted! Your claim ID is S1234</h2>
+            <p>Your request will be reviewed in a few days</p>
+        </div>
+    </div>
 
-
-    <script src="../../public/scripts/expense-script.js"></script>
+<script src="../scripts/expense-script.js"></script>
 </body>
 
 </html>
