@@ -509,16 +509,16 @@ button:hover {
 
 .overlay-content {
     background: white;
-    width: 400px;
-    padding: 30px;
+    width: 600px;
+    padding-bottom: 50px;
+    padding-top: 50px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.emoji {
-    font-size: 50px;
-    margin-bottom: 20px;
+.overlay .emoji-img{
+    margin-bottom: 40px;
 }
 
 .overlay h2 {
@@ -534,4 +534,41 @@ button:hover {
 /* Hidden class to hide overlay */
 .hidden {
     display: none;
+}
+
+
+.kanban {
+    display: flex;
+    justify-content: space-between;
+    width: 1400px;
+    height: 1300px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    padding: 0px 80px 0px 80px;
+
+}
+
+.column {
+    background-color: #FFFAFA;
+    border-radius: 12px;
+    flex: 1;
+    margin: 0 10px;
+    padding: 10px;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.column h3 {
+    text-align: center;
+}
+
+.card {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    margin: 10px 10px 30px 10px;
+    padding: 25px;
+    padding-left: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    line-height: 25px;
 }

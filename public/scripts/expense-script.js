@@ -32,6 +32,6 @@ document.getElementById("expense-form").addEventListener("submit", function(even
         // Optional: Redirect to another page after a short delay (e.g., 2 seconds)
         setTimeout(() => {
             window.location.href = "your-new-page.html"; // Replace with your desired URL
-        }, 2000);
+        }, 5000);
     }
 });
