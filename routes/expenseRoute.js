@@ -7,4 +7,3 @@ router.get("/expense", controller.getExpenses);
 router.post("/expense", controller.addExpense);
 
 module.exports = router;
-

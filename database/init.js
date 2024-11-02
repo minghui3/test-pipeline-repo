@@ -19,20 +19,23 @@ pool.on("connect", async (client) => {
         const managerResult = await client.query(insertManagers.toString());
 
         // get managers' ids
-        const managers = managerResult.rows.map(row => row.employee_id);
+        const managers = managerResult.rows.map((row) => row.employee_id);
         console.log("Manager IDs: ", managers);
 
         // insert employees who have managers
-        const employeeResult = await client.query(insertEmployees.toString(), managers);
+        const employeeResult = await client.query(
+            insertEmployees.toString(),
+            managers
+        );
 
         // get employees' ids
-        const employees = employeeResult.rows.map(row => row.employee_id);
+        const employees = employeeResult.rows.map((row) => row.employee_id);
         console.log("Employee IDs: ", employees);
 
         // set triggers
         await client.query(triggers.toString());
 
-        // insert leaves 
+        // insert leaves
         await client.query(insertLeaves.toString(), employees);
 
         // insert expenses

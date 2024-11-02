@@ -12,7 +12,7 @@ const getExpenses = async (req, res) => {
 const addExpense = async (req, res) => {
     try {
         const expenseId = await Expense.addExpense(req.body);
-        res.status(201).json(expenseId)
+        res.status(201).json(expenseId);
     } catch (err) {
         res.status(500).send("Error adding expense");
     }
@@ -20,5 +20,5 @@ const addExpense = async (req, res) => {
 
 module.exports = {
     getExpenses,
-    addExpense
+    addExpense,
 };
