@@ -1,15 +1,11 @@
-const { Pool } = require("pg");
 const { readFileSync } = require("fs");
-const dbConfig = require("../config/postgres.config");
-
+const pool = require("./pool");
 const create = readFileSync("./database/create.sql");
 const triggers = readFileSync("./database/triggers.sql");
 const insertLeaves = readFileSync("./database/leaves.sql");
 const insertExpenses = readFileSync("./database/expenses.sql");
 const insertManagers = readFileSync("./database/managers.sql");
 const insertEmployees = readFileSync("./database/employees.sql");
-
-const pool = new Pool(dbConfig);
 
 pool.on("connect", async (client) => {
     try {
