@@ -1,11 +1,11 @@
 const { readFileSync } = require("fs");
 const pool = require("./pool");
 const create = readFileSync("./database/create.sql");
-const triggers = readFileSync("./database/triggers.sql");
-const insertLeaves = readFileSync("./database/leaves.sql");
-const insertExpenses = readFileSync("./database/expenses.sql");
-const insertManagers = readFileSync("./database/managers.sql");
-const insertEmployees = readFileSync("./database/employees.sql");
+const triggers = readFileSync("./database/trigger.sql");
+const insertLeaves = readFileSync("./database/leave.sql");
+const insertExpenses = readFileSync("./database/expense.sql");
+const insertManagers = readFileSync("./database/manager.sql");
+const insertEmployees = readFileSync("./database/employee.sql");
 
 pool.on("connect", async (client) => {
     try {
