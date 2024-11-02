@@ -14,9 +14,9 @@
         <ul class="menu">
             <a href="./directory.html" class="menu-item"><img src="../../images/directory-icon-dark.png"
                     alt="Employee Directory Icon" class="menu-icon">Employee Directory</a>
-            <a href="./leave-form.html" class="menu-item"><img src="../../images/leave-icon-dark.png"
+            <a href="./leave-form.html" class="menu-item active"><img src="../../images/leave-icon-light.png"
                     alt="Leave Management Icon" class="menu-icon">Leave Management</a>
-            <a href="./expense-form.html" class="menu-item active"><img src="../../images/expense-icon-light.png"
+            <a href="./expense-form.html" class="menu-item"><img src="../../images/expense-icon-dark.png"
                     alt="Expense Management Icon" class="menu-icon">Expense Management</a>
         </ul>
     </div>
@@ -30,33 +30,28 @@
     
         </header>
         <div class="expense-header">
-            <h1>Expense Management</h1>
+            <h1>Leave Management</h1>
             <div class="tabs">
-                <span><a href="expense-form.html">Form</a></span>
-                <span class="active"><a href="expense-status.html">Status</a></span>
+                <span class="active"><a href="leave-form.html">Form</a></span>
+                <span><a href="leave-status.html">Status</a></span>
             </div>
         </div>
     <div class="kanban">
         <div class="column approved">
             <h3>Approved</h3>
-            <div class="card"><strong>Claim ID S1234</strong><br>Your office supplies expense has been approved and will be added to your
-                next paycheck.</div>
-            <div class="card"><strong>Claim ID S1234</strong><br>Your office supplies expense has been approved and will be added to your
-                next paycheck.</div>
-            <div class="card"><strong>Claim ID S1234</strong><br>Your office supplies expense has been approved and will be added to your
-                next paycheck.</div>
+            <div class="card"><strong>Claim ID C1234</strong><br>Your leave request has been approved
+            and will be reflected in your next payroll</div>
         </div>
         <div class="column pending">
             <h3>Pending</h3>
-            <div class="card"><strong>Claim ID S1234</strong><br>Your office supplies expense is in progress and will be added to your
-                paycheck if approved.</div>
-            <div class="card"><strong>Claim ID S1234</strong><br>Your office supplies expense is in progress and will be added to your
-                paycheck if approved.</div>
+            <div class="card"><strong>Claim ID C1234</strong><br>Your leave request is in progress and
+            will be updated once approved.</div>
+            <div class="card"><strong>Claim ID C1234</strong><br>Your leave request is in progress and
+            will be updated once approved.</div>
         </div>
         <div class="column rejected">
             <h3>Rejected</h3>
-            <div class="card"><strong>Claim ID S1234</strong><br>Your travel expense claim has been denied, as it has been classified as a
-                personal expense.</div>
+            <div class="card"><strong>Claim ID C1234</strong><br>Your leave request has been denied due to the stated reason is insufficient.</div>
         </div>
 
     <script src="../../public/scripts/leave-script.js"></script>
