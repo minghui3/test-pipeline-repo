@@ -33,7 +33,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
+#email,
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -44,7 +44,7 @@ input[type="password"] {
     outline: none;
     font-size: 16px;
 }
-
+#email,
 input[type="text"]:focus,
 input[type="password"]:focus {
     border-bottom: 1px solid #8a4ef9;
