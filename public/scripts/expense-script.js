@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', fetchManagers);
-    const manager = "";
+    const employee = JSON.parse(sessionStorage.getItem("employee"));
+    console.log(employee);
     async function fetchManagers() {
         try {
             const response = await fetch("/manager"); // Correct endpoint
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', fetchManagers);
             if (Array.isArray(data) && data.length > 0) {
                 data.forEach(manager => {
                 const option = document.createElement('option');
-                option.value = manager.name; // Assuming `id` is a unique identifier for each manager
+                option.value = manager.employeeId; // Assuming `id` is a unique identifier for each manager
                 option.textContent = manager.name; // Display manager name in dropdown
                 approverSelect.appendChild(option);
             });
@@ -57,15 +58,22 @@ document.getElementById("expense-form").addEventListener("submit", async functio
     const date = document.getElementById("date").value;
     const amount = document.getElementById("amount").value;
     const reason = document.getElementById("reason").value;
+    const fileInput = document.getElementById('upload'); // Get the file input
+    let supportingDocumentPath = null;
+    if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name; // Get the name of the file
+        supportingDocumentPath = `../images/${fileName}`; // Construct the relative path
+    }
+    
     const requestData = {
         type: expenseType,    
         dateOfExpense: date,
         amount: amount,
         status: "Pending",       
         expenseReason: reason,
-        applierId: YOUR_APPLIER_ID,         // You need to provide the correct applier ID
-        approverId: approver,                // Should map to body.approverId
-        supportingDocumentPath: null,   
+        applierId: employee.employeeId,
+        approverId: approver,            
+        supportingDocumentPath: supportingDocumentPath   
     };
     console.log(requestData)
 

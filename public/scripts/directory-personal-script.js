@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", fetchEmployeeProfile);
-
+    const employee = JSON.parse(sessionStorage.getItem("employee"));
+    console.log(employee);
+    document.getElementById("profile-name").innerHTML = employee.name
+    document.getElementById("profile-email").innerHTML = employee.email
 async function fetchEmployeeProfile() {
     const urlParams = new URLSearchParams(window.location.search);
     const employeeId = urlParams.get("employeeId");

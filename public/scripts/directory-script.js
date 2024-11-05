@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', fetchEmployees);
-
+    const employee = JSON.parse(sessionStorage.getItem("employee"));
+    console.log(employee);
+    document.getElementById("profile-name").innerHTML = employee.name
+    document.getElementById("profile-email").innerHTML = employee.email
         async function fetchEmployees() {
             try {
                 const response = await fetch("/employee"); // Correct endpoint
