@@ -23,15 +23,37 @@ document.getElementById("expense-form").addEventListener("submit", function(even
     if (!expenseType || !approver || !date || !amount || !reason === 0) {
         alert("Please fill out all required fields before submitting the form.");
     } else {
-        // Show overlay and prevent form from submitting
-        document.getElementById("overlay").classList.remove("hidden");
-        
-        // Clear the form fields
-        document.getElementById("expense-form").reset();
 
-        // Optional: Redirect to another page after a short delay (e.g., 2 seconds)
-        setTimeout(() => {
-            window.location.href = "your-new-page.html"; // Replace with your desired URL
-        }, 5000);
+        // Prepare the form data to send to the server
+        const formData = new FormData();
+        formData.append("expenseType", expenseType);
+        formData.append("approver", approver);
+        formData.append("date", date);
+        formData.append("amount", amount);
+        formData.append("reason", reason);
+
+        try {
+        // Send the POST request to the server endpoint
+        const response = await fetch("https://your-endpoint-url.com/api/submit-expense", {
+            method: "POST",
+            body: formData,
+        });
+
+        if (response.ok) {
+            // Show overlay and reset form
+            document.getElementById("overlay").classList.remove("hidden");
+            document.getElementById("expense-form").reset();
+            fileNameDisplay.textContent = "No file chosen"; // Reset file name display
+
+            // Optional: Redirect after a delay
+            setTimeout(() => {
+                window.location.href = "your-new-page.html"; // Replace with the desired URL
+            }, 5000);
+        } else {
+            alert("There was an error submitting the form. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error submitting the form:", error);
+        alert("An error occurred. Please check your connection and try again.");
     }
-});
+}});

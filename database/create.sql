@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS employees, leaves, expenses;
 -- RE-CREATE TABLES --
 CREATE TABLE employees (
     employee_id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+    password varchar(255) NOT NULL,
     name varchar(255) NOT NULL,
     email varchar(255) NOT NULL,
     contact_number varchar(255) NOT NULL,

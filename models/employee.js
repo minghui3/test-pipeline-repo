@@ -82,6 +82,34 @@ class Employee {
     }
 }
 
+    static async getManagers() {
+        try {
+            const result = await pool.query(
+                `SELECT * FROM employees WHERE manager IS NULL;`
+            );
+
+            return result.rows.map((row) => ({
+                employeeId: row.employee_id,
+                name: row.name,
+                email: row.email,
+                contactNumber: row.contact_number,
+                department: row.department,
+                title: row.title,
+                workLocation: row.work_location,
+                dateJoined: row.date_joined,
+                annualLeaveRemaining: row.annual_leave_remaining,
+                linkedIn: row.linked_in,
+                skills: row.skills,
+                photoPath: row.photo_path,
+                languages: row.languages,
+                manager: row.manager,
+            }));
+        } catch (err) {
+            console.error(err);
+            throw err;
+        }
+    }
+
 
     /**
      * Adds a new employee record into the database

@@ -6,5 +6,6 @@ const router = express.Router();
 router.get("/employee", controller.getEmployees);
 router.post("/employee", controller.addEmployee);
 router.get("/employee/:employeeId", controller.getEmployeeById);
+router.get("/manager",controller.getManagers)
 
 module.exports = router;
