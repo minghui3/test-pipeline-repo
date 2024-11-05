@@ -1,14 +1,53 @@
+document.addEventListener('DOMContentLoaded', fetchManagers);
+    const manager = "";
+    async function fetchManagers() {
+        try {
+            const response = await fetch("/manager"); // Correct endpoint
+            if (!response.ok) {
+                throw new Error(`Failed to fetch manager: ${response.status} ${response.statusText}`);
+            }
+            const contentType = response.headers.get('content-type');
+            if (!contentType || !contentType.includes('application/json')) {
+                throw new Error('Expected JSON response from server');
+            }
+            const data = await response.json();
+            console.log(data);
+
+            const approverSelect = document.getElementById("approver");
+            if (!approverSelect) {
+                console.error('Approver select element not found.');
+                return;
+            }
+            approverSelect.innerHTML = ''; // Clear previous content
+
+            if (Array.isArray(data) && data.length > 0) {
+                data.forEach(manager => {
+                const option = document.createElement('option');
+                option.value = manager.name; // Assuming `id` is a unique identifier for each manager
+                option.textContent = manager.name; // Display manager name in dropdown
+                approverSelect.appendChild(option);
+            });
+            } else {
+                const message = document.createElement('p');
+                message.textContent = 'No managers found.';
+            }
+            employeesContainer.appendChild(message);
+            console.error('Error fetching managers:', error);
+        } catch (error) {
+        };
+    }
+
 const fileInput = document.getElementById('upload');
-const fileLabel = document.querySelector('.custom-file-label');
-const fileNameDisplay = document.querySelector('.file-name');
+    const fileLabel = document.querySelector('.custom-file-label');
+    const fileNameDisplay = document.querySelector('.file-name');
 
-fileInput.addEventListener('change', function() {
-    const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : 'No file chosen';
-    fileLabel.textContent = 'Upload Documents'; // Keep the label static
-    fileNameDisplay.textContent = fileName; // Update the span with the file name
-});
+    fileInput.addEventListener('change', function() {
+        const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : 'No file chosen';
+        fileLabel.textContent = 'Upload Documents'; // Keep the label static
+        fileNameDisplay.textContent = fileName; // Update the span with the file name
+        });
 
-document.getElementById("expense-form").addEventListener("submit", function(event) {
+document.getElementById("expense-form").addEventListener("submit", async function(event) {
     // Prevent default form submission
     event.preventDefault();
 
@@ -18,25 +57,31 @@ document.getElementById("expense-form").addEventListener("submit", function(even
     const date = document.getElementById("date").value;
     const amount = document.getElementById("amount").value;
     const reason = document.getElementById("reason").value;
+    const requestData = {
+        type: expenseType,    
+        dateOfExpense: date,
+        amount: amount,
+        status: "Pending",       
+        expenseReason: reason,
+        applierId: YOUR_APPLIER_ID,         // You need to provide the correct applier ID
+        approverId: approver,                // Should map to body.approverId
+        supportingDocumentPath: null,   
+    };
+    console.log(requestData)
 
     // Check if all required fields are filled
     if (!expenseType || !approver || !date || !amount || !reason === 0) {
         alert("Please fill out all required fields before submitting the form.");
     } else {
-
-        // Prepare the form data to send to the server
-        const formData = new FormData();
-        formData.append("expenseType", expenseType);
-        formData.append("approver", approver);
-        formData.append("date", date);
-        formData.append("amount", amount);
-        formData.append("reason", reason);
-
+        
         try {
         // Send the POST request to the server endpoint
-        const response = await fetch("https://your-endpoint-url.com/api/submit-expense", {
-            method: "POST",
-            body: formData,
+        const response = await fetch('/expense', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // Set content type for JSON
+            },
+            body: JSON.stringify(requestData) // Send data as JSON string
         });
 
         if (response.ok) {

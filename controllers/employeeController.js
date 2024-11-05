@@ -25,7 +25,7 @@ const getEmployeeById = async (req, res) => {
 
 const getManagers = async (req, res) => {
     try {
-        const employees = await Employee.getEmployees();
+        const employees = await Employee.getManagers();
         res.status(200).json(employees);
     } catch (err) {
         res.status(500).send("Error fetching employees");
