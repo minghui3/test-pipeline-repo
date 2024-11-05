@@ -37,7 +37,7 @@
             </div>
         </div>
     <div class="kanban">
-        <div class="column approved">
+        <div class="column approved" id = "approved-column">
             <h3>Approved</h3>
             <div class="card"><strong>Claim ID S1234</strong><br>Your office supplies expense has been approved and will be added to your
                 next paycheck.</div>
@@ -46,20 +46,20 @@
             <div class="card"><strong>Claim ID S1234</strong><br>Your office supplies expense has been approved and will be added to your
                 next paycheck.</div>
         </div>
-        <div class="column pending">
+        <div class="column pending" id = "pending-column">
             <h3>Pending</h3>
             <div class="card"><strong>Claim ID S1234</strong><br>Your office supplies expense is in progress and will be added to your
                 paycheck if approved.</div>
             <div class="card"><strong>Claim ID S1234</strong><br>Your office supplies expense is in progress and will be added to your
                 paycheck if approved.</div>
         </div>
-        <div class="column rejected">
+        <div class="column rejected" id = "rejected-column">
             <h3>Rejected</h3>
             <div class="card"><strong>Claim ID S1234</strong><br>Your travel expense claim has been denied, as it has been classified as a
                 personal expense.</div>
         </div>
 
-    <script src="scripts/leave-script.js"></script>
+    <script src="scripts/expense-status.js"></script>
 </body>
 
 </html>
