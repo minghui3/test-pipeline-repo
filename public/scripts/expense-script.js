@@ -3,6 +3,14 @@ const employee = JSON.parse(sessionStorage.getItem("employee"));
 console.log(employee);
 document.getElementById("profile-name").innerHTML = employee.name;
 document.getElementById("profile-email").innerHTML = employee.email;
+
+if (employee.manager === null) {
+    const tabs = document.getElementById('tabs'); // Select the tabs container
+    const newTab = document.createElement('span'); // Create a new span
+    newTab.innerHTML = `<a href="manager-expense-status.html">Manager Approval</a>`; // Set the inner HTML (link) for the new tab
+    tabs.appendChild(newTab); // Append the new span to the tabs
+}
+
 async function fetchManagers() {
     try {
         const response = await fetch("/manager"); // Correct endpoint

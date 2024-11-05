@@ -36,7 +36,7 @@ CREATE TABLE expenses (
 CREATE TABLE leaves (
     leave_id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
     type varchar(255) NOT NULL,
-    date_start date NOT NULL CHECK (date_start <= date_end),
+    date_start date NOT NULL CHECK (date_start <= date_end),0
     date_end date NOT NULL,
     status varchar(255) NOT NULL CHECK (status IN ('Approved', 'Rejected', 'Pending')),
     applier_id uuid NOT NULL REFERENCES employees ON DELETE CASCADE,

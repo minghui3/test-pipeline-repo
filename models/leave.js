@@ -44,6 +44,62 @@ class Leave {
     }
 
     /**
+     * Retrieves all leaves from the database
+     *
+     * @returns {Array<Leave>} An array of objects that represent all leaves
+     */
+    static async getAllLeaves() {
+        try {
+            const result = await pool.query(`SELECT * FROM leaves;`);
+            return result.rows.map((row) => ({
+                leaveId: row.leave_id,
+                type: row.type,
+                dateStart: row.date_start,
+                dateEnd: row.date_end,
+                status: row.status,
+                applierId: row.applier_id,
+                approverId: row.approver_id,
+                leaveReason: row.leave_reason,
+                rejectionReason: row.rejection_reason,
+            }));
+        } catch (err) {
+            console.error(err);
+            throw err;
+        }
+    }
+
+    /**
+     * Updates an existing leave in the database
+     *
+     * @param {Object} body HTML body containing the attributes to update
+     * @param {string} leaveId The ID of the leave to update
+     *
+     * @returns {Object} The updated leave details
+     */
+    static async updateLeaveStatus(body, leaveId) {
+    try {
+        const sqlQuery = `
+            UPDATE leaves
+            SET status = $1
+            WHERE leave_id = $2
+            RETURNING leave_id, status;
+        `;
+        const values = [
+            body.status, // Update only the status
+            leaveId,
+        ];
+        const result = await pool.query(sqlQuery, values);
+        return {
+            leaveId: result.rows[0].leave_id,
+            status: result.rows[0].status,
+        };
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
+
+    /**
      * Adds a new leave into the database
      *
      * @param {Object} body HTML body containing attributes for new leave

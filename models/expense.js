@@ -45,6 +45,63 @@ class Expense {
         }
     }
 
+        /**
+     * Retrieves all expenses from the database
+     *
+     * @returns {Array<Expense>} An array of objects that each represents an expense
+     */
+    static async getAllExpenses() {
+        try {
+            const result = await pool.query(`SELECT * FROM expenses;`);
+            return result.rows.map((row) => ({
+                expenseId: row.expense_id,
+                type: row.type,
+                dateOfExpense: row.date_of_expense,
+                amount: row.amount,
+                status: row.status,
+                expenseReason: row.expense_reason,
+                applierId: row.applier_id,
+                approverId: row.approver_id,
+                supportingDocumentPath: row.supporting_document_path,
+                rejectionReason: row.rejection_reason,
+            }));
+        } catch (err) {
+            console.error(err);
+            throw err;
+        }
+    }
+
+        /**
+     * Updates the status of an existing expense in the database
+     *
+     * @param {Object} body HTML body containing the new status
+     * @param {string} expenseId The ID of the expense to update
+     *
+     * @returns {Object} The updated expense details
+     */
+    static async updateExpenseStatus(body, expenseId) {
+        try {
+            const sqlQuery = `
+                UPDATE expenses
+                SET status = $1
+                WHERE expense_id = $2
+                RETURNING expense_id, status;
+            `;
+            const values = [
+                body.status, // Update only the status
+                expenseId,
+            ];
+            const result = await pool.query(sqlQuery, values);
+            return {
+                expenseId: result.rows[0].expense_id,
+                status: result.rows[0].status,
+            };
+        } catch (err) {
+            console.error(err);
+            throw err;
+        }
+    }
+
     /**
      * Adds a new expense into the database.
      *
