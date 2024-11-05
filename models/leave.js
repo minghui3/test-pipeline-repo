@@ -56,8 +56,8 @@ class Leave {
                 INSERT INTO leaves (
                 type, date_start, date_end, status,
                 applier_id, approver_id, leave_reason,
-                rejection_reason)
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+                supporting_document_path, rejection_reason)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
                 RETURNING leave_id;
             `;
             const values = [
@@ -68,6 +68,7 @@ class Leave {
                 body.applierId,
                 body.approverId,
                 body.leaveReason,
+                body.supportingDocumentPath,
                 body.rejectionReason,
             ];
             const result = await pool.query(sqlQuery, values);

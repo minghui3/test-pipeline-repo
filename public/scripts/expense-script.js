@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', fetchManagers);
     const employee = JSON.parse(sessionStorage.getItem("employee"));
     console.log(employee);
+    document.getElementById("profile-name").innerHTML = employee.name;
+    document.getElementById("profile-email").innerHTML = employee.email;
     async function fetchManagers() {
         try {
             const response = await fetch("/manager"); // Correct endpoint
@@ -64,7 +66,7 @@ document.getElementById("expense-form").addEventListener("submit", async functio
         const fileName = fileInput.files[0].name; // Get the name of the file
         supportingDocumentPath = `../images/${fileName}`; // Construct the relative path
     }
-    
+
     const requestData = {
         type: expenseType,    
         dateOfExpense: date,
@@ -100,7 +102,7 @@ document.getElementById("expense-form").addEventListener("submit", async functio
 
             // Optional: Redirect after a delay
             setTimeout(() => {
-                window.location.href = "your-new-page.html"; // Replace with the desired URL
+                window.location.href = "expense-status.html"; // Replace with the desired URL
             }, 5000);
         } else {
             alert("There was an error submitting the form. Please try again.");
