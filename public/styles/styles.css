@@ -251,7 +251,9 @@ button:hover {
 
 /* Contact Info Styling */
 .body-directory .contact-info {
-    margin-left: 100px;
+    margin-left: 850px;
+    margin-top: -250px;
+    margin-bottom: 200px;
 }
 
 .body-directory .contact-info p {
@@ -309,8 +311,9 @@ button:hover {
 
 .body-directory .about-section-table td{
     letter-spacing: 0.022em;
-    padding-left: 170px;
-    width: 0%;
+    padding-left: 250px;
+    width: 50%;
+    font-size: 18px;
 }
 
 .body-directory .profile-pic-2 {

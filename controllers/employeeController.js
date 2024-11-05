@@ -1,4 +1,4 @@
-const Employee = require("../models/employee");
+ const Employee = require("../models/employee");
 
 const getEmployees = async (req, res) => {
     try {
@@ -6,6 +6,20 @@ const getEmployees = async (req, res) => {
         res.status(200).json(employees);
     } catch (err) {
         res.status(500).send("Error fetching employees");
+    }
+};
+
+const getEmployeeById = async (req, res) => {
+    const { employeeId } = req.params;
+    try {
+        const employee = await Employee.getEmployeeById(employeeId);
+        if (employee) {
+            res.status(200).json(employee);
+        } else {
+            res.status(404).send({ message: 'Employee not found' });
+        }
+    } catch (err) {
+        res.status(500).send("Error fetching employee");
     }
 };
 
@@ -21,4 +35,5 @@ const addEmployee = async (req, res) => {
 module.exports = {
     getEmployees,
     addEmployee,
+    getEmployeeById,
 };
