@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulsePointHR</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body class="body-directory">
+    <div class="sidebar">
+        <img src="images/pointpulsehr-logo.png" alt="PulsePointHR Logo" class="logo">
+        <ul class="menu">
+            <a href="directory.html" class="menu-item active"><img src="images/directory-icon-light.png"
+                    alt="Employee Directory Icon" class="menu-icon">Employee Directory</a>
+            <a href="leave-form.html" class="menu-item"><img src="images/leave-icon-dark.png"
+                    alt="Leave Management Icon" class="menu-icon">Leave Management</a>
+            <a href="expense-form.html" class="menu-item"><img src="images/expense-icon-dark.png"
+                    alt="Expense Management Icon" class="menu-icon">Expense Management</a>
+        </ul>
+    </div>
+    <div class="content">
+        <header>
+            <input type="text" id="search-bar" placeholder="Search" class="search-bar">
+            <div class="profile-pic"></div>
+            <div class="profile-info">
+                <span class="profile-name" id="profile-name"></span>
+                <span class="profile-id" id="profile-email"></span>
+            </div>
+        </header>
+        <div class="employee-grid" id="employeeContainer">
+            <!-- employees will be dynamically added -->
+        </div>
+    </div>
+
+    <script src="scripts/directory-script.js"></script>
+</body>
+
+</html>

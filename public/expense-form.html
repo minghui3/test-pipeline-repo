@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulsePointHR</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body class="body-directory">
+    <div class="sidebar">
+        <img src="images/pointpulsehr-logo.png" alt="PulsePointHR Logo" class="logo">
+        <ul class="menu">
+            <a href="directory.html" class="menu-item"><img src="images/directory-icon-dark.png"
+                    alt="Employee Directory Icon" class="menu-icon">Employee Directory</a>
+            <a href="leave-form.html" class="menu-item"><img src="images/leave-icon-dark.png"
+                    alt="Leave Management Icon" class="menu-icon">Leave Management</a>
+            <a href="expense-form.html" class="menu-item active"><img src="images/expense-icon-light.png"
+                    alt="Expense Management Icon" class="menu-icon">Expense Management</a>
+        </ul>
+    </div>
+    <div class="content">
+        <header>
+            <div class="profile-pic-2"></div>
+            <div class="profile-info">
+                <span class="profile-name" id="profile-name"></span>
+                <span class="profile-id" id="profile-email"></span>
+            </div>
+
+        </header>
+        <div class = "expense-header">
+            <h1>Expense Management</h1>
+            <div class="tabs" id= "tabs">
+                <span class="active"><a href = "expense-form.html">Form</a></span>
+                <span><a href = "expense-status.html">Status</a></span>
+            </div>
+        </div>
+        <div class="container-expense">
+            <!-- Main Content -->
+            <main class="content-2">
+                <!-- Form Section -->
+                <section class="form-section">
+                    <form class="expense-form" id="expense-form">
+                        <h2>Apply Expense</h2>
+        
+                        <div class="form-group">
+                            <label for="expense-type">Expense Type</label>
+                            <select id="expense-type">
+                                <option>Office Supplies</option>
+                                <option>Food & Drinks</option>
+                                <option>Travel</option>
+                                <option>Training</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="approver">Approver</label>
+                            <select id="approver">
+                                <option value="">Select a manager</option>
+                            </select>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="date">Date of Expense</label>
+                            <input type="date" id="date">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="amount">Expense Amount</label>
+                            <input type="number" id="amount" placeholder="$" style="margin-top: 0px;">
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="reason" >Reason for Expense</label>
+                            <textarea id="reason" placeholder="Enter reason"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="upload" class="custom-file-label"><img src="../../images/upload-img.png" alt="Upload Image" class="upload-img">Upload Documents</label>
+                            <input type="file" id="upload" class="custom-file-input">
+                            <span class="file-name">No file chosen</span>
+                        </div>
+        
+                        <div class="buttons">
+                            <button type="button" class="cancel" style="color: #828282">Cancel</button>
+                            <button type="submit" id="submitBtn" class="apply">Apply</button>
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    </div>
+    </div>
+    <div id="overlay" class="overlay hidden">
+        <div class="overlay-content">
+            <div class="emoji-img"><img src= "images/submitted-happy-image.png"></div>
+            <h2>Form submitted! Your claim ID is S1234</h2>
+            <p>Your request will be reviewed in a few days</p>
+        </div>
+    </div>
+
+<script src="scripts/expense-script.js"></script>
+</body>
+
+</html>
