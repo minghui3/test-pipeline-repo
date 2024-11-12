@@ -88,7 +88,7 @@ const requestData = {
 console.log(requestData)
 
 // Check if all required fields are filled
-if (!expenseType || !approver || !date || !amount || !reason === 0) {
+if (!expenseType || !approver || !date || !amount || reason === "") {
     alert("Please fill out all required fields before submitting the form.");
 } else {
     
