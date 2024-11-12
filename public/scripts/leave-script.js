@@ -89,7 +89,7 @@ document.getElementById("leave-form").addEventListener("submit", async function(
     console.log(requestData)
 
     // Check if all required fields are filled
-    if (!leaveType || !approver || !startDate || !endDate || !reason === 0) {
+    if (!leaveType || !approver || !startDate || !endDate || reason === "") {
         alert("Please fill out all required fields before submitting the form.");
     } else {
         
