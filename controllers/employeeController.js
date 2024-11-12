@@ -55,7 +55,7 @@ const employeeLogin = async (req,res) =>{
     }
     catch(err){
         console.error(err);
-        res.status(500).send("Error in employee login");
+        res.status(500).json({message: "Error in employee login", success : false});
     }
 }
 
