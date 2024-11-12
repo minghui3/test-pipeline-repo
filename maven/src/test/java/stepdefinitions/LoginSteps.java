@@ -6,10 +6,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
- 
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By; 
-import org.openqa.selenium.WebDriver; 
-import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -23,7 +23,7 @@ public class LoginSteps
 
     @Before
     public void initializeWebDriver() {
-        driver = new ChromeDriver();
+        driver = DriverManager.getDriver();
     }
 
     @Given("I am on the login page")
@@ -56,9 +56,13 @@ public class LoginSteps
         String alertText = driver.switchTo().alert().getText();
         assertEquals(alertText, message);
     }
-
+    @And("I accept the alert")
+    public void i_accept_the_alert() {
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
     @After
     public void closeBrowser(){
-        driver.quit();
+        DriverManager.quitDriver();
     } 
 }
