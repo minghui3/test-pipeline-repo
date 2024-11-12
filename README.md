@@ -1,4 +1,2 @@
 # PointPulseHR
-testtesttesttest
-testTEST
 test
