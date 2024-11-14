@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class WebDriverSetup {
     public static WebDriver getDriver(String browser) throws MalformedURLException {
         // Specify the Selenium Grid Hub URL here
-        String hubUrl = "http://localhost:4444/";
+        String hubUrl = "http://localhost:4445/";
 
         // Set default timeout values
         int browserStartupTimeout = 30; // Browser initialization timeout in seconds
