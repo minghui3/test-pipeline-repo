@@ -10,7 +10,7 @@ const expenseController = require("./controllers/expenseController")
 const leaveController = require("./controllers/leaveController")
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 app.use(express.static("public"));
 app.use(bodyParser.json());
