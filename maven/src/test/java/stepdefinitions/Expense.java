@@ -18,7 +18,7 @@ public class Expense {
     }
     @Given("I am on the expense form page")
     public void i_am_on_the_expense_form_page(){
-        driver.get("http://localhost:3000/expense-form.html");
+        driver.get("http://localhost:3001/expense-form.html");
     }
     @And("I enter {string} as the expense date")
     public void i_enter_as_the_expense_date(String date){
