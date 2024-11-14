@@ -27,7 +27,7 @@ public class ApplyLeave {
 
     @Given("I am on the leave form page")
     public void i_am_on_the_leave_form_page(){
-        driver.get("http://localhost:3000/leave-form.html");
+        driver.get("http://localhost:3001/leave-form.html");
     }
     @And("I select {string} as the type")
     public void i_select_as_the_leave_type(String leaveType){
